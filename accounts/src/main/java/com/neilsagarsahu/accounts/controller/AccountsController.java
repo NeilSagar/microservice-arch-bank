@@ -19,11 +19,12 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 public class AccountsController {
 
-    private IAccountsService accountsService;
+    @Autowired
+    private IAccountsService iaccountsService;
 
     @PostMapping("/accounts")
     public ResponseEntity<String> createAccount(@RequestBody CustomerDto customerDto) {
-        accountsService.createAccount(customerDto);
+        iaccountsService.createAccount(customerDto);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body("Created");

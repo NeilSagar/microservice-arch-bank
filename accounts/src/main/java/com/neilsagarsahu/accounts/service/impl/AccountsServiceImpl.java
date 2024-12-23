@@ -10,6 +10,7 @@ import com.neilsagarsahu.accounts.repository.AccountsRepository;
 import com.neilsagarsahu.accounts.repository.CustomerRepository;
 import com.neilsagarsahu.accounts.service.IAccountsService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -19,7 +20,9 @@ import java.util.Random;
 @AllArgsConstructor
 public class AccountsServiceImpl implements IAccountsService {
 
+    @Autowired
     private AccountsRepository accountsRepository;
+    @Autowired
     private CustomerRepository customerRepository;
 
     private Accounts createNewAccount(Customer customer) {
