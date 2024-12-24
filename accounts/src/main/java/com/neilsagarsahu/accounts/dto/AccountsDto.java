@@ -1,14 +1,12 @@
 package com.neilsagarsahu.accounts.dto;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class AccountsDto {
     private Long accountNumber;
     private String accountType;
