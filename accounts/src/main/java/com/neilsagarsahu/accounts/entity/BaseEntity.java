@@ -21,29 +21,33 @@ import java.time.LocalDateTime;
 public class BaseEntity {
 
     @Column(updatable = false)
+    @CreatedDate
     private LocalDateTime createdAt;
 
 
     @Column(updatable = false)
+    @CreatedBy
     private String createdBy;
 
 
     @Column(insertable = false)
+    @LastModifiedDate
     private LocalDateTime updatedAt;
 
     @Column(insertable = false)
+    @LastModifiedBy
     private String updatedBy;
 
     @PrePersist
     public void onPrePersist() {
         this.createdAt = LocalDateTime.now();
-        this.createdBy = "ACCOUNTS_MS";
+        this.createdBy = "Anonymous";
     }
 
     @PreUpdate
     public void onPreUpdate() {
         this.updatedAt = LocalDateTime.now();
-        this.updatedBy = "ACCOUNTS_MS";  // Replace with dynamic value if needed
+        this.updatedBy = "Anonymous";  // Replace with dynamic value if needed
     }
 
 }
