@@ -18,3 +18,7 @@ spring:
     show-sql: true
 
 
+logging:
+  level:
+    org.springframework.data.jpa.repository.config.EnableJpaAuditing: DEBUG
+    org.hibernate.SQL: DEBUG
