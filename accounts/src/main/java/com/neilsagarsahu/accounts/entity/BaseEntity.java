@@ -2,6 +2,8 @@ package com.neilsagarsahu.accounts.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,19 +19,31 @@ import java.time.LocalDateTime;
 @Data
 @ToString
 public class BaseEntity {
+
     @Column(updatable = false)
-    @CreatedDate
     private LocalDateTime createdAt;
 
-    @CreatedBy
-    @Column(updatable = false)
-    private String created_by;
 
-    @LastModifiedDate
+    @Column(updatable = false)
+    private String createdBy;
+
+
     @Column(insertable = false)
     private LocalDateTime updatedAt;
 
-    @LastModifiedBy
     @Column(insertable = false)
-    private String updated_by;
+    private String updatedBy;
+
+    @PrePersist
+    public void onPrePersist() {
+        this.createdAt = LocalDateTime.now();
+        this.createdBy = "ACCOUNTS_MS";
+    }
+
+    @PreUpdate
+    public void onPreUpdate() {
+        this.updatedAt = LocalDateTime.now();
+        this.updatedBy = "ACCOUNTS_MS";  // Replace with dynamic value if needed
+    }
+
 }
