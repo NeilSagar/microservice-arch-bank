@@ -1,6 +1,7 @@
 package com.neilsagarsahu.accounts.controller;
 
 import com.neilsagarsahu.accounts.constants.AccountsConstants;
+import com.neilsagarsahu.accounts.dto.AccountsDto;
 import com.neilsagarsahu.accounts.dto.CustomerDto;
 import com.neilsagarsahu.accounts.dto.ResponseDto;
 import com.neilsagarsahu.accounts.service.IAccountsService;
@@ -23,11 +24,10 @@ public class AccountsController {
     private IAccountsService iaccountsService;
 
     @PostMapping("/accounts")
-    public ResponseEntity<String> createAccount(@RequestBody CustomerDto customerDto) {
+    public ResponseEntity<ResponseDto> createAccount(@RequestBody CustomerDto customerDto) {
         iaccountsService.createAccount(customerDto);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
-                .body("Created");
-//                .body(new ResponseDto(AccountsConstants.STATUS_201, AccountsConstants.MESSAGE_201));
+                .body(new ResponseDto(AccountsConstants.STATUS_201, AccountsConstants.MESSAGE_201));
     }
 }
