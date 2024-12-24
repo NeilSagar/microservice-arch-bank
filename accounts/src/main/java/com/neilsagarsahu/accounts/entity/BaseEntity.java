@@ -37,16 +37,4 @@ public class BaseEntity {
     @LastModifiedBy
     private String updatedBy;
 
-//    @PrePersist
-//    public void onPrePersist() {
-//        this.createdAt = LocalDateTime.now();
-//        this.createdBy = "ACCOUNTS_MS";
-//    }
-//
-//    @PreUpdate
-//    public void onPreUpdate() {
-//        this.updatedAt = LocalDateTime.now();
-//        this.updatedBy = "ACCOUNTS_MS";  // Replace with dynamic value if needed
-//    }
-
 }
