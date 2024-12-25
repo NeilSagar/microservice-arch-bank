@@ -12,7 +12,7 @@
 	<artifactId>cards</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>cards</name>
-	<description>Micro-service for Loans</description>
+	<description>Micro-service for Cards</description>
 	<url/>
 	<licenses>
 		<license/>
